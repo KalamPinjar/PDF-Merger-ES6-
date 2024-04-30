@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <style>
+        
+        #pdfs {
+            background: rgba(13, 0, 130, 0.5);
+            pointer-events: all;
+            border: 1px solid black;
+            border-radius: 10px;
+            margin-top: 2%;
+            width: 15%;
+            height: 40px;
+        }
+
+        body {
+            background: black;
+            color: white;
+        }
+      
+
+    </style>
+</head>
+
+<body>
+    <div class="bg-black">
+        <header class="top-0 z-50 absolute inset-x-0">
+            <nav class="flex justify-between items-center lg:px-8 p-6" aria-label="Global">
+                <div class="flex lg:flex-1">
+                    <a href="#" class="-m-1.5 p-1.5">
+                        <span class="sr-only">Your Company</span>
+                        <img class="w-auto h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                            alt="">
+                    </a>
+                </div>
+                <div class="flex lg:hidden">
+                    <button type="button"
+                        class="inline-flex justify-center items-center -m-2.5 p-2.5 rounded-md text-gray-700">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="lg:flex lg:gap-x-12 hidden">
+                    <a href="#" class="font-semibold text-sm text-white leading-6">Product</a>
+                    <a href="#" class="font-semibold text-whitetext-sm leading-6">Features</a>
+                    <a href="#" class="font-semibold text-sm text-white leading-6">Marketplace</a>
+                    <a href="#" class="font-semibold text-sm text-white leading-6">Company</a>
+                </div>
+                <div class="lg:flex lg:flex-1 lg:justify-end hidden">
+                    <a href="#" class="font-semibold text-sm text-white leading-6">Log in <span
+                            aria-hidden="true">&rarr;</span></a>
+                </div>
+            </nav>
+            <!-- Mobile menu, show/hide based on menu open state. -->
+            <div class="lg:hidden" role="dialog" aria-modal="true">
+                <!-- Background backdrop, show/hide based on slide-over state. -->
+                <div class="z-50 fixed inset-0"></div>
+                <div
+                    class="right-0 z-50 fixed inset-y-0 bg-white px-6 py-6 w-full sm:max-w-sm overflow-y-auto sm:ring-1 sm:ring-gray-900/10">
+                    <div class="flex justify-between items-center">
+                        <a href="#" class="-m-1.5 p-1.5">
+                            <span class="sr-only">Your Company</span>
+                            <img class="w-auto h-8"
+                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                        </a>
+                        <button type="button" class="-m-2.5 p-2.5 rounded-md text-gray-700">
+                            <span class="sr-only">Close menu</span>
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-6 flow-root">
+                        <div class="-my-6 divide-y divide-gray-500/10">
+                            <div class="space-y-2 py-6">
+                                <a href="#"
+                                    class="block hover:bg-gray-50 -mx-3 px-3 py-2 rounded-lg font-semibold text-base text-gray-900 leading-7">Product</a>
+                                <a href="#"
+                                    class="block hover:bg-gray-50 -mx-3 px-3 py-2 rounded-lg font-semibold text-base text-gray-900 leading-7">Features</a>
+                                <a href="#"
+                                    class="block hover:bg-gray-50 -mx-3 px-3 py-2 rounded-lg font-semibold text-base text-gray-900 leading-7">Marketplace</a>
+                                <a href="#"
+                                    class="block hover:bg-gray-50 -mx-3 px-3 py-2 rounded-lg font-semibold text-base text-gray-900 leading-7">Company</a>
+                            </div>
+                            <div class="py-6">
+                                <a href="#"
+                                    class="block hover:bg-gray-50 -mx-3 px-3 py-2.5 rounded-lg font-semibold text-base text-gray-900 leading-7">Log
+                                    in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="relative px-6 lg:px-8 pt-14 isolate">
+            <div class="-top-40 sm:-top-80 -z-10 absolute inset-x-0 blur-3xl transform-gpu overflow-hidden"
+                aria-hidden="true">
+                <div class="relative left-[calc(50%-11rem)] sm:left-[calc(50%-30rem)] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 w-[36.125rem] sm:w-[72.1875rem] -translate-x-1/2 aspect-[1155/678] rotate-[30deg]"
+                    style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+                </div>
+            </div>
+
+            
+
+            <center>
+                <form method="post" action="/merge" enctype="multipart/form-data">
+                    <div class="mx-auto mb-3 py-32 sm:py-48 lg:py-10 max-w-2xl b bo bor form-group">
+                        <label for="exampleFormControlFile1">Multiple
+                            files input example</label>
+                        <input type="file" class="border-gray-600 form-control-file p-2 border"
+                            id="exampleFormControlFile1" name="pdfs" multiple accept=".pdf">
+                        <input  class="bg-indigo-600 hover:bg-indigo-500 shadow-sm mt-10 px-3.5 py-2.5 rounded-md font-semibold text-sm text-white mt focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ma" type="submit" value="Submit">
+                    </div>
+                </form>
+            </center>
+
+
+        </div>
+        <div class="text-center">
+            <h1 class="font-bold text-4xl text-white sm:text-6xl tracking-tight">PDFx A Tool That Merges
+                Multiple Files</h1>
+            <p class="mt-6 text-gray-300 text-w leading-8">Anim aute id magna aliqua ad ad non deserunt sunt.
+                Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+            <div class="flex justify-center items-center gap-x-6 mt-10">
+                <a href="#"
+                    class="bg-indigo-600 hover:bg-indigo-500 shadow-sm px-3.5 py-2.5 rounded-md font-semibold text-sm text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
+                    started</a>
+                <a href="#" class="font-semibold text-gray-500 text-sm leading-6">Learn more <span
+                        aria-hidden="true">→</span></a>
+            </div>
+            <div class="mx-auto py-32 sm:py-48 lg:py-10 max-w-2xl">
+                <div class="sm:flex sm:justify-center hidden sm:mb-8">
+                    <div
+                        class="relative px-3 py-1 rounded-full text-gray-600 text-sm leading-6 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
+                        How to use this,Read Docs. <a href="#" class="font-semibold text-indigo-600"><span
+                                class="absolute inset-0" aria-hidden="true"></span>Read more <span
+                                aria-hidden="true">&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+    </div>
+    </div>
+</body>
+
+</html>
+
+</html>
