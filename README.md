@@ -8,12 +8,16 @@ Welcome to the PDF Merger Web Application! This project is a single-page website
 - **Responsive Layout**: Ensures compatibility across various devices and screen sizes.
     
 - ### Installation To run this application locally, follow these steps:
-- 1. Clone the repository:
+  1. Clone the repository:
      ```bash git clone https://github.com/KalamPinjar/pdf-merger.git ```
-  2. Navigate to the project directory: ```bash cd pdf-merger ```
-  3. Install dependencies: ```bash npm install ```
-  4. Start the server: ```bash npm start ```
-  5. Open your web browser and visit `http://localhost:3000` to access the PDF Merger Web Application.
+  2. Navigate to the project directory:
+     ```bash cd pdf-merger ```
+  4. Install dependencies:
+     ```bash npm install ```
+  6. Start the server:
+     ```bash npm start ```
+  8. Open your web browser and visit
+     `http://localhost:3000` to access the PDF Merger Web Application.
 
 ### Usage 
 1. Upload two PDF files using the provided interface.
